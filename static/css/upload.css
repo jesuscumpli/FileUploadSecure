@@ -1,0 +1,12 @@
+
+.simple-upload-droppable {
+    line-height: 20em;
+    border: 1px dashed #2f92a1;
+    text-align: center;
+    color: #0e8396;
+    border-radius: 7px;
+}
+
+.simple-upload-filename {
+    margin-right: .5em;
+}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+    <title>Home</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+            crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename="dist/jquery-simple-upload.js") }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/upload.css") }}"/>
+{#    <script src="{{ url_for('static', filename="js/upload.js") }}"></script>#}
+{% endblock %}
+
+
+
+{% block body %}
+
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-sm-center h-100 my-5">
+                <div>
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+                            <h1 class="fs-4 card-title fw-bold mb-4">Subir Ficheros</h1>
+                            <form method="post" action="/upload" enctype="multipart/form-data">
+                                {% for message in get_flashed_messages() %}
+                                    <div class="alert alert-danger">{{ message }}</div>
+                                {% endfor %}
+
+                                <small>Seleccione un fichero. El fichero será guardado automáticamente en el servidor.</small>
+                                <div id="wrapper">
+                                    <input type="file" class="form-control" name="file" id="uploadFiles">
+                                </div>
+                                <div id="wrapper">
+                                    <label for="description">Description File</label>
+                                    <input type="text" class="form-control" name="description"  id="description" required>
+                                </div>
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="button btn btn-primary w-100 mt-10" style="margin-top: 10px">Subir Fichero</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

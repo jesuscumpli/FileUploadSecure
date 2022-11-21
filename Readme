@@ -1,0 +1,15 @@
+
+################ PREREQUISITES #################################
+- Python >= 3.7
+- MariaDB (deployed in localhost at 3306 port) and including packages:
+    - MariaDB Connector/C
+    - MariaDB Connector/Python
+
+################## TO INSTALL THE PROJECT ######################
+1. Download the project
+2. Create Database, Tables and Insert Roles with the file FileUploadSchema.sql:
+    - mysql> source path_to_project/FileUploadSchema.sql
+3. Edit configuration file configMariaDB with the host and port of MariaDB. User with permissions created automatically in SQL file.
+2. Create an environment of python (venv)
+3. Install the requirements: pip install -r requirements.txt
+4. Execute application with: python main.py
